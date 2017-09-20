@@ -46,23 +46,26 @@ def market(request,categoryid,cid,sortid):
     if token:
         user = User.objects.get(userToken=token)
         cartlist = Cart.objects.filter(userAccount=user.userAccount)
-    for p in productList:
-        for c in cartlist:
-            if c.productid == p.productid:
-                p.num = c.productnum
-                continue
+        for p in productList:
+            for c in cartlist:
+                if c.productid == p.productid:
+                    p.num = c.productnum
+                    continue
 
-    return render(request,'axf/market.html',{"title": "闪送超市", "leftSlider": leftSlider, "productList": productList, "childList": childList,"categoryid": categoryid, "cid": cid})
+    return render(request,'axf/market.html',locals())
 
 def cart(request):
+
     title = '购物车'
     cartlist = []
     token = request.session.get('token')
     if token != None:
         user = User.objects.get(userToken=token)
         cartlist = Cart.objects.filter(userAccount=user.userAccount)
+        return render(request, 'axf/cart.html', locals())
+    else:
+        return redirect('/login/')
 
-    return render(request,'axf/cart.html',locals())
 
 
 # 更改购物车
@@ -161,10 +164,10 @@ def login(request):
                 user = User.objects.get(userAccount=nameid)
                 if user.userPasswd != pswd:
                     #c
-                    return render('/login/')
+                    return redirect('/login/')
             except User.DoesNotExist as e:
                 #c
-                return render('/login/')
+                return redirect('/login/')
             #登录成功
             user.userToken = str(time.time()+random.randrange(1,100000))
             user.save()

@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     var alltypebtn = document.getElementById('alltypebtn')
     var showsortbtn = document.getElementById('showsortbtn')
@@ -26,12 +27,10 @@ $(document).ready(function () {
         sortdiv.style.display = 'none'
     },false)
 
-
-    // for(var i = 0;i < 11;i++){
-    //     idtimes = "yellowSlide-"+"i"
-    //     var yellow = document.getElementById(idtimes)
-    //     yellow.style.display = 'none'
-    // }
+    //window.location.pathname:获取当前网址的文件地址即/market/103581/0/0/
+    var num = window.location.pathname
+    num1 = num.match(/\d+/g)
+    document.getElementById(num1[0]).setAttribute('class','yellowSlide')
 
     //修改购物车
     var addShoppings = document.getElementsByClassName('addShopping')

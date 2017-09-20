@@ -22,9 +22,11 @@ header, footer{
     display: flex;
 }
 header{
-    background:yellow;
-    top:0;
-    left:0;
+    background:palegreen;
+    font-family: "MV Boli";
+    font-size: 33px;
+    line-height: 1.5rem;
+    text-align: center;
 }
 footer{
     background:#fff;

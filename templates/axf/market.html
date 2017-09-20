@@ -13,8 +13,8 @@
             <ul>
                 {% for item in leftSlider %}
                 <li>
-                    <span  id="yellowSlide-{{ forloop.counter }}" class="yellowSlide"></span>
-                    <a href="/market/{{ item.typeid }}/0/0/">{{item.typename}}</a>
+                    <span id="{{ item.typeid }}"></span>
+                    <a href="/market/{{ item.typeid }}/0/0/" class="yellow" gaa="{{ item.typeid }}">{{item.typename}}</a>
                 </li>
                 {% endfor %}
             </ul>
