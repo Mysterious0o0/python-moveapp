@@ -93,8 +93,6 @@
     </section>
 
 
-
-
     <section class="mainInfo">
         {% for item in mainList%}
             <section>
@@ -104,7 +102,9 @@
                     <span></span>
                 </h3>
                 <div>
-                    <a href="/market/{{ item.trackid }}/0/0/"><img src="{{item.img}}" alt="item.name"/></a>
+                    <a href="/market/{{ item.trackid }}/0/0/">
+                        <img src="{{item.img}}" alt="item.name"/>
+                    </a>
                 </div>
                 <ul>
                     <li>

@@ -4,6 +4,7 @@ from .models import Wheel,Nav,mustbuy,Shop,MainShow,FoodTypes,Goods,User,Cart,Or
 import random ,time ,os
 from django.conf import settings
 def home(request):
+    title = '主页'
     wheelsList = Wheel.objects.all()
     navList = Nav.objects.all()
     mustbuyList = mustbuy.objects.all()
@@ -13,6 +14,7 @@ def home(request):
     shop3 = shopList[3:7]
     shop4 = shopList[7:11]
     mainList = MainShow.objects.all()
+
     return render(request,'axf/home.html',locals())
     # return render(request,'axf/home.html',{"title":"主页","wheelsList":wheelsList,"navList":navList,"mustbuyList":mustbuyList,"shop1":shop1,"shop2":shop2,"shop3":shop3,"shop4":shop4,"mainList":mainList})
 
