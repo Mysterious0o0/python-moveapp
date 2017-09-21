@@ -10,13 +10,21 @@ $(document).ready(function () {
     sortdiv.style.display = 'none'
 
     alltypebtn.addEventListener('click',function () {
-        typediv.style.display = 'block'
+        if (typediv.style.display == 'none') {
+            typediv.style.display = 'block'
+        }else {
+            typediv.style.display = 'none'
+        }
         sortdiv.style.display = 'none'
     },false)
 
     showsortbtn.addEventListener('click',function () {
+        if (sortdiv.style.display == 'none') {
+            sortdiv.style.display = 'block'
+        }else {
+            sortdiv.style.display = 'none'
+        }
         typediv.style.display = 'none'
-        sortdiv.style.display = 'block'
     },false)
 
     typediv.addEventListener('click',function () {

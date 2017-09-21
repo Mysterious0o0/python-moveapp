@@ -17,7 +17,7 @@
         <div class="swiper-wrapper">
             {% for item in wheelsList %}
             <div class="swiper-slide">
-                <a href="#"><img src="{{item.img}}" /></a>
+                <a href="/market/{{ item.trackid}}/0/0/"><img src="{{item.img}}" /></a>
             </div>
             {% endfor %}
         </div>
@@ -25,7 +25,6 @@
 
         </div>
     </section>
-
 
 
     <section class="topMenu">
@@ -46,8 +45,7 @@
             <ul class= "swiper-wrapper ">
                 {% for item in mustbuyList %}
                 <li class="swiper-slide">
-                    <a><img src="{{item.img}}"/></a>
-
+                    <a href="/market/{{ item.trackid }}/0/0"><img src="{{item.img}}"/></a>
                 </li>
                 {% endfor %}
             </ul>
@@ -59,12 +57,14 @@
 
     <section class="CVS">
         <h2>
-            <img src="{{shop1.img}}" alt="{{shop1.name}}"/>
+            <a href="/market/{{ shop1.trackid }}/0/0">
+                <img src="{{shop1.img}}" alt="{{shop1.name}}"/>
+            </a>
         </h2>
 
         <fieldset>
             {% for x in shop2 %}
-                <a href="#">
+                <a href="/market/{{ x.trackid }}/0/0">
                     <img src="{{x.img}}" alt="{{x.name}}"/>
                 </a>
             {% endfor %}
@@ -73,7 +73,7 @@
         <ul>
             {% for x in shop3 %}
                 <li>
-                    <a href="#">
+                    <a href="/market/{{ x.trackid }}/0/0">
                         <img src="{{x.img}}" />
                         <span>{{x.name}}</span>
                     </a>
@@ -83,7 +83,11 @@
 
         <ol>
             {% for x in shop4 %}
-                <li><a href="#"><img src="{{x.img}}" alt="{{x.name}}"/></a></li>
+                <li>
+                    <a href="/market/{{ x.trackid }}/0/0/">
+                        <img src="{{x.img}}" alt="{{x.name}}"/>
+                    </a>
+                </li>
             {% endfor %}
         </ol>
     </section>
@@ -96,11 +100,11 @@
             <section>
                 <h3>
                     {{item.name}}
-                    <a ui-sref="#">更多></a>
+                    <a href="/market/{{ item.trackid }}/0/0/">更多></a>
                     <span></span>
                 </h3>
                 <div>
-                    <a href="#"><img src="{{item.img}}" alt="item.name"/></a>
+                    <a href="/market/{{ item.trackid }}/0/0/"><img src="{{item.img}}" alt="item.name"/></a>
                 </div>
                 <ul>
                     <li>
@@ -110,7 +114,7 @@
                             <span>¥{{item.price1}}</span>
                             <s>¥{{item.marketprice1}}</s>
                         </a>
-                        <button><span>&#43;</span></button>
+{#                        <button><span>&#43;</span></button>#}
                     </li>
                     <li>
                         <a href="#">
@@ -119,7 +123,7 @@
                             <span>¥{{item.price2}}</span>
                             <s>¥{{item.marketprice2}}</s>
                         </a>
-                        <button><span>&#43;</span></button>
+{#                        <button><span>&#43;</span></button>#}
                     </li>
                     <li>
                         <a href="#">
@@ -128,17 +132,12 @@
                             <span>¥{{item.price3}}</span>
                             <s>¥{{item.marketprice3}}</s>
                         </a>
-                        <button><span>&#43;</span></button>
+{#                        <button><span>&#43;</span></button>#}
                     </li>
                 </ul>
             </section>
         {% endfor %}
     </section>
-
-
-
-
-
 </div>
 
 {% endblock base %}
