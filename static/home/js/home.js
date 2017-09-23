@@ -2,8 +2,10 @@ $(document).ready(function () {
      setTimeout(function(){
          swiper1()
          swiper2()
-    },100)
+    },100)  
+    window.onscroll = function () {
 
+    }
 
 
 
