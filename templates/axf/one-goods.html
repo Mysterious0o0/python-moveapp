@@ -1,0 +1,53 @@
+{% extends 'axf/base.html' %}
+{% load static from staticfiles %}
+
+{% block linkscript%}
+    <link rel="stylesheet" type="text/css" href="{% static 'goods/css/goods.css' %}" />
+    <script type="text/javascript" charset="utf-8" src="{% static 'goods/js/goods.js' %}" ></script>
+{% endblock linkscript%}
+
+{% block base %}
+    <div id="goods">
+        <div id="img">
+            <img src="{{ onegoods.productimg }}">
+        </div>
+        <div>
+            <div id="detail">
+                <ul>
+                    <li><span>名称：{{ onegoods.productlongname }}</span></li>
+                    <li><span>优惠价格：{{ onegoods.price }}</span></li>
+                    <li><span>商品原价：{{ onegoods.marketprice }}</span></li>
+                    <li><span>商品规格：{{ onegoods.specifics }}</span></li>
+                    {% if onegoods.pmdesc == '0' %}
+                        <li><span>优惠活动：参与买一送一</span></li>
+                    {% else %}
+                        <li><span>抱歉当前没有优惠活动</span></li>
+                    {% endif %}
+                    <li><span>库存：{{ onegoods.storenums }}</span></li>
+                    <li><span>销量：{{ onegoods.productnum }}</span></li>
+                </ul>
+            </div>
+            <div id="shop">
+                <button>立即购买</button>
+                <button>加入购物车</button>
+                <span>
+                    <a>扫码支付</a>
+                    <span class="dropdown">
+                        <img src="{% static 'goods/img/1.png' %}">
+                        <div class="dropdown-content">
+                            <img src="{% static 'goods/img/1.png' %}" alt="Trolltunga Norway" width="120" height="120">
+                        </div>
+                    </span>
+                </span>
+            </div>
+            <div id="feature">
+                <ul>
+                    <li>7天无理由退货</li>
+                    <li>商品保管说明</li>
+                    <li>企业采购</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock base %}
