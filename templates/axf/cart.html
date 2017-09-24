@@ -58,10 +58,10 @@
                                 </span>
                             </span>
                         </div>
-                        <a href="#">
+                        <a id="{{ item.productid }}" href="/cartgoods/{{ item.productid }}/">
                             <img src="{{item.productimg}}"/>
                             <p>{{item.productname}}</p>
-                            <span id="{{ item.productid }}price" class="{{productprice}}">{{ item.productprice }}</span>
+                            <span id="{{ item.productid }}price" class="{{productprice}}" >{{ item.productprice }}</span>
                         </a>
                         <section>
                             <button class="subShopping"  ga="{{item.productid}}">-</button>
@@ -72,13 +72,21 @@
                     {% endfor %}
 
 					<li class="payTheBill">
-						<div class="confirm"><span><span>
-                            {% if trueFlag %}
-                            √
-                            {% endif %}
-                        </span></span></div>
-						<p><span>全选</span><span>共计:</span><span>总价</span></p>
-						<a id="ok">选好了</a>
+						<div class="confirm">
+                            <span>
+                                <span>
+                                {% if trueFlag %}
+                                √
+                                {% endif %}
+                                </span>
+                            </span>
+                        </div>
+						<p>
+                            <span id="all">全选</span>
+                            <span>共计:</span>
+                            <span id="money"> </span>
+                        </p>
+						<a id="ok">提交订单</a>
 					</li>
 				</ul>
 			</menu>

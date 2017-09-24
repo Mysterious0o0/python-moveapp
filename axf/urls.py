@@ -15,6 +15,10 @@ urlpatterns = [
     url(r'^saveorder/$',views.saveorder,name='saveorder'),
     # 更新购物车
     url(r'^changecart/(\d+)/$',views.changecart,name='changecart'),
+    # 购物车商品
+    url(r'^cartgoods/(\d+)/$',views.cartgoods,name='cartgoods'),
+    # 总价格
+    url(r'^allprice/$',views.allprice,name='allprice'),
 
     # 我的
     url(r'^mine/$',views.mine,name = 'mine'),

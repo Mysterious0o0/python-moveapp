@@ -2,7 +2,6 @@ $(document).ready(function () {
     //修改购物车
     var addShoppings = document.getElementsByClassName('addShopping')
     var subShoppings = document.getElementsByClassName('subShopping')
-
     for(var i = 0;i<addShoppings.length; i++){
         addShopping = addShoppings[i]
         addShopping.addEventListener('click',function () {
@@ -12,13 +11,16 @@ $(document).ready(function () {
             $.post('/changecart/0/',{'productid':pid},function (data) {
                 if(data.status == 'success'){
                 //添加成功。把span的innerHTML编程当前数量
+
                     document.getElementById(pid).innerHTML = data.data
                     document.getElementById(pid+'price').innerHTML = data.price
+                    priceUpdata()
                 }
             })
 
         })
     }
+
     for(var i = 0;i<subShoppings.length; i++){
         subShopping = subShoppings[i]
         subShopping.addEventListener('click',function () {
@@ -33,6 +35,7 @@ $(document).ready(function () {
                         // window.location.href='http:127.0.0.1:8000/cart'
                         var li = document.getElementById(pid + 'li')
                         li.parentNode.removeChild(li)
+                        priceUpdata()
                     }
                 }
             })
@@ -49,11 +52,20 @@ $(document).ready(function () {
                     // window.location.href='http:127.0.0.1:8000/cart'
                     var s = document.getElementById(pid+'a')
                     s.innerHTML = data.data
+                    priceUpdata()
                 }
             })
 
         },false)
     }
+    function priceUpdata() {
+        $.post("/allprice/",function (data) {
+            if(data.status == 'success'){
+                document.getElementById('money').innerHTML = data.price
+            }
+        })
+    }
+    priceUpdata()
 
     var ok = document.getElementById('ok')
     ok.addEventListener('click',function () {
@@ -62,6 +74,7 @@ $(document).ready(function () {
             $.post('/saveorder/',function (data) {
                 if (data.status == 'success'){
                     window.location.href = 'http://127.0.0.1:8000/cart/'
+                    priceUpdata()
                 }
             })
         }

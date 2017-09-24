@@ -66,32 +66,23 @@ def goods(request,categoryid,cid,sortid,goodsid):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 def cart(request):
-
     title = '购物车'
     cartlist = []
     token = request.session.get('token')
     if token != None:
         user = User.objects.get(userToken=token)
         cartlist = Cart.objects.filter(userAccount=user.userAccount)
+
         return render(request, 'axf/cart.html', locals())
     else:
         return redirect('/login/')
 
+# 购物车详情页
+def cartgoods(request,goodsid):
 
+    onegoods = Goods.objects.get(productid=goodsid)
+    return render(request,'axf/goods.html',locals())
 
 # 更改购物车
 def changecart(request,flag):
@@ -101,24 +92,24 @@ def changecart(request,flag):
         return JsonResponse({'data':-1,'status':'error'})
     # 从html获取商品id
     productid = request.POST.get('productid')
-    print(productid)
     # 从商品id获取商品信息
     product = Goods.objects.get(productid=productid)
     # 有token值获取用户信息
     user = User.objects.get(userToken=token)
+
+
     if flag == '0':
         # 判断库存
         if product.storenums == 0:
             return JsonResponse({'data': -2, 'status': 'error'})
         # 拿用户的所有数据
-        carts = Cart.objects.filter(userAccount = user.userAccount)
+        carts = Cart.objects.filter(userAccount=user.userAccount)
         c = None
         # 有没有订单，如果没有生成一条订单
         if carts.count() == 0:
             # 直接增加一条数据
             c = Cart.createcart(user.userAccount,productid,1,product.price,True,product.productimg,product.productlongname,False)
             c.save()
-            pass
         else:
             # 有没有该产品订单
             try:
@@ -135,6 +126,7 @@ def changecart(request,flag):
         product.storenums -= 1
         product.save()
         return JsonResponse({"data":c.productnum,'status':'success','price':c.productprice})
+
     elif flag == '1':
         # 拿用户的所有数据
         carts = Cart.objects.filter(userAccount=user.userAccount)
@@ -159,6 +151,7 @@ def changecart(request,flag):
         # 库存加一
         product.storenums += 1
         product.save()
+
         return JsonResponse({"data": c.productnum, 'status': 'success','price':c.productprice})
 
     elif flag == '2':
@@ -170,6 +163,26 @@ def changecart(request,flag):
         if c.isChose :
             str = '√'
         return JsonResponse({'data':str,'status':'success'})
+
+def allprice(request):
+    token = request.session.get('token')
+    user = User.objects.get(userToken=token)
+    carts = Cart.objects.filter(userAccount=user.userAccount,isChose=True)
+    allprice = 0
+    for item in carts:
+        allprice += float(item.productprice)
+    return JsonResponse({'price':allprice,'status':'success'})
+
+
+
+
+
+
+
+
+
+
+
 
 def mine(request):
     title = '我的'
