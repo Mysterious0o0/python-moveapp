@@ -20,6 +20,8 @@ urlpatterns = [
     url(r'^cartgoods/(\d+)/$',views.cartgoods,name='cartgoods'),
     # 总价格
     url(r'^allprice/(\d+)/$',views.allprice,name='allprice'),
+    # 结算
+    url(r'^shopping/$',views.shopping,name='shopping'),
 
     # 我的
     url(r'^mine/$',views.mine,name = 'mine'),

@@ -1,0 +1,75 @@
+{% extends 'axf/base.html' %}
+{% load static from staticfiles %}
+
+{% block linkscript%}
+    <link rel="stylesheet" type="text/css" href="{% static 'shopping/css/shopping.css' %}" />
+    <script type="text/javascript" charset="utf-8" src="{% static 'shopping/js/shopping.js' %}" ></script>
+{% endblock linkscript%}
+
+{% block base %}
+<div id="cart">
+    <h3><b>购物车</b></h3>
+
+    <section class="full">
+		<section>
+			<ul>
+				<li>
+                    <div class="clear">
+                        <p class="infoJustify">收货人<b></b></p><p>:<span>{{ user.userName }}</span></p>
+                    </div>
+                </li>
+				<li>
+                    <div class="clear">
+                        <p class="infoJustify">电话<b></b></p><p>:<span>{{ user.userPhone }}</span><a class="change">修改></a></p>
+                    </div>
+                </li>
+				<li>
+                    <div class="clear"><p class="infoJustify">收货地址<b></b></p><p>:<span>{{ user.userAdderss }}</span></p>
+                    </div>
+                </li>
+			</ul>
+
+			<section class="bill">
+				<p>闪送超市</p>
+				<p>￥0起送,22:00前满￥30免运费</p>
+				<a>凑单专区</a>
+			</section>
+
+			<section class="delivery">
+				<span>收货时间</span> <span>一小时送达</span> <a>可预订></a>
+			</section>
+			<section class="delivery">
+				<span>收货备注</span> <input  type="text"  placeholder="可输入100字以内特殊要求内容" />
+			</section>
+
+
+            <menu>
+				<ul>
+                    {% for item in cartlist%}
+                    <li id="{{item.productid}}li" class="menuList">
+                        <div class="confirm"></div>
+                        <a id="{{ item.productid }}" href="/cartgoods/{{ item.productid }}/">
+                            <img src="{{item.productimg}}"/>
+                            <p>{{item.productname}}</p>
+                            <span id="{{ item.productid }}price" class="{{productprice}}" >{{ item.productprice }}</span>
+                        </a>
+                        <section>
+                            <span id="{{item.productid}}">共定份额：{{item.productnum}}份</span>
+                        </section>
+                    </li>
+                    {% endfor %}
+
+					<li class="payTheBill">
+						<p>
+                            <span>共计:</span>
+                            <span id="money"> </span>
+                        </p>
+						<a id="ok">提交订单</a>
+					</li>
+				</ul>
+			</menu>
+		</section>
+	</section>
+</div>
+
+{% endblock base %}

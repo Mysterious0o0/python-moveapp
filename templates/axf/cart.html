@@ -12,38 +12,6 @@
 
     <section class="full">
 		<section>
-			<ul>
-				<li>
-                    <div class="clear">
-                        <p class="infoJustify">收货人<b></b></p><p>:<span>{{ user.userName }}</span></p>
-                    </div>
-                </li>
-				<li>
-                    <div class="clear">
-                        <p class="infoJustify">电话<b></b></p><p>:<span>{{ user.userPhone }}</span><a class="change">修改></a></p>
-                    </div>
-                </li>
-				<li>
-                    <div class="clear"><p class="infoJustify">收货地址<b></b></p><p>:<span>{{ user.userAdderss }}</span></p>
-                    </div>
-                </li>
-			</ul>
-
-
-			<section class="bill">
-				<p>闪送超市</p>
-				<p>￥0起送,22:00前满￥30免运费</p>
-				<a>凑单专区</a>
-			</section>
-
-
-			<section class="delivery">
-				<span>收货时间</span> <span>一小时送达</span> <a>可预订></a>
-			</section>
-			<section class="delivery">
-				<span>收货备注</span> <input type="text" placeholder="可输入100字以内特殊要求内容"/>
-			</section>
-
 
             <menu>
 				<ul>
@@ -71,19 +39,19 @@
                     </li>
                     {% endfor %}
 
-					<li class="payTheBill">
-						<div class="confirm">
+                    <li class="payTheBill">
+                        <div class="confirm">
                             <span>
                                 <span id="allchose"></span>
                             </span>
                         </div>
-						<p>
+                        <p>
                             <span id="all">全选</span>
                             <span>共计:</span>
                             <span id="money"> </span>
                         </p>
-						<a id="ok">提交订单</a>
-					</li>
+                        <a id="ok" href="/shopping/">提交订单</a>
+                    </li>
 				</ul>
 			</menu>
 		</section>

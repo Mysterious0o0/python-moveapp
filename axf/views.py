@@ -186,6 +186,11 @@ def allprice(request,flag):
     #     str = '√'
     #     return JsonResponse({'data': str, 'status': 'success'})
 
+def shopping(request):
+    token = request.session.get('token')
+    user = User.objects.get(userToken=token)
+    cartlist = Cart.objects.filter(userAccount=user.userAccount,isChose=True)
+    return render(request,'axf/shopping.html',locals())
 
 
 
