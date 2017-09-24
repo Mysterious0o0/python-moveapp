@@ -4,6 +4,7 @@ urlpatterns = [
     # 主页
     url(r'^home/$',views.home,name = 'home'),
 
+
     # 超市
     url(r'^market/(\d+)/(\d+)/(\d+)/$',views.market,name = 'market'),
     # 商品详情页
