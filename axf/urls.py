@@ -9,6 +9,8 @@ urlpatterns = [
     url(r'^market/(\d+)/(\d+)/(\d+)/$',views.market,name = 'market'),
     # 商品详情页
     url(r'^market/(\d+)/(\d+)/(\d+)/(\d+)/$',views.goods,name='goods'),
+    # 立即支付
+    url(r'^buy/$',views.buy,name='buy'),
 
     # 购物车
     url(r'^cart/$',views.cart,name = 'cart'),

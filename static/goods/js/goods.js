@@ -13,4 +13,18 @@ $(document).ready(function () {
                 }
         })
     });
+    $('#buy').click(function(){
+        buyid = this.getAttribute('buy')
+        $.post('/buy/',{"productid":buyid},function (data) {
+            if(data.status == 'success'){
+                console.log("success")
+
+                }else {
+                    if (data.data ==-1){
+                        window.location.href = 'http://127.0.0.1:8000/login/'
+                    }
+                }
+        })
+    });
+
 })

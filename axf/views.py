@@ -83,6 +83,16 @@ def cartgoods(request,goodsid):
 
     onegoods = Goods.objects.get(productid=goodsid)
     return render(request,'axf/goods.html',locals())
+# 立即支付
+def buy(request):
+    taken = request.session.get('token')
+    user = User.objects.get(userToken=taken)
+    productid = request.POST.get('productid')
+    cartlist = Goods.objects.get(productid=productid)
+    return JsonResponse({'status':'success'})
+    # return render(request,'axf/shopping.html',locals())
+
+
 
 # 更改购物车
 def changecart(request,flag):
