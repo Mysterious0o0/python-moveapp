@@ -1,0 +1,51 @@
+#goods {
+  padding: 1.5rem 0;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  position: fixed;}
+
+#img{
+    width: 100%;
+    background-color: white;
+    text-align:center;
+
+}
+#detail>ul>li{
+    box-shadow: 0px 0px 16px 0px rgba(255,255,255,1);
+    background-size: 100%,1rem;
+    height: 1rem;
+    line-height: 1rem;
+    background-color:darksalmon;
+}
+#shop{
+    height: 2.3rem;
+    background-color: palegreen;
+    text-align:center;
+}
+#btn{
+    padding-top: 0.8rem;
+}
+.dropdown>img{
+    background-size: 30px,30px;
+    background: center;
+    width: 30px;
+    height: 30px;
+}
+.dropdown-content {
+
+    display: none;
+    float: right;
+    width: 100%;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+#feature{
+    background-color: #c0a16b;
+    text-align:center;
+}
+#feature ul>li{
+    display:inline
+}

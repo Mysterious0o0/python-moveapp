@@ -57,6 +57,28 @@ def market(request,categoryid,cid,sortid):
 
     return render(request,'axf/market.html',locals())
 
+# 商品详页
+def goods(request,categoryid,cid,sortid,goodsid):
+    title:'商品详页'
+    onegoods = Goods.objects.get(id=goodsid)
+    print(onegoods)
+    return render(request, 'axf/goods.html', locals())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def cart(request):
 
     title = '购物车'
@@ -79,11 +101,11 @@ def changecart(request,flag):
         return JsonResponse({'data':-1,'status':'error'})
     # 从html获取商品id
     productid = request.POST.get('productid')
+    print(productid)
     # 从商品id获取商品信息
-    product = Goods.objects.get(productid = productid)
+    product = Goods.objects.get(productid=productid)
     # 有token值获取用户信息
     user = User.objects.get(userToken=token)
-
     if flag == '0':
         # 判断库存
         if product.storenums == 0:
@@ -183,8 +205,8 @@ def login(request):
         f = LoginForm()
         return render(request, 'axf/login.html',{'title':'登录','form':f})
 
-# 注册
 
+# 注册
 def register(request):
     if request.method == 'POST':
         userAccount = request.POST.get('userAccount')

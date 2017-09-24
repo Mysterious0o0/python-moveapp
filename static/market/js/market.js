@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
     var alltypebtn = document.getElementById('alltypebtn')
     var showsortbtn = document.getElementById('showsortbtn')

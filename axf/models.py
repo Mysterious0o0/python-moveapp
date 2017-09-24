@@ -55,6 +55,7 @@ class FoodTypes(models.Model):
     typename = models.CharField(max_length=20)
     typesort = models.IntegerField()
     childtypenames = models.CharField(max_length=150)
+
 # 商品模型类
 class Goods(models.Model):
     # 商品id
@@ -87,7 +88,6 @@ class Goods(models.Model):
     storenums = models.IntegerField()
     # 销量
     productnum = models.IntegerField()
-
 
 # 用户模型类
 class User(models.Model):

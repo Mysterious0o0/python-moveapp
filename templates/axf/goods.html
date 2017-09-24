@@ -14,7 +14,7 @@
         <div>
             <div id="detail">
                 <ul>
-                    <li><span>名称：{{ onegoods.productlongname }}</span></li>
+                    <li class="detail"><span>名称：{{ onegoods.productlongname }}</span></li>
                     <li><span>优惠价格：{{ onegoods.price }}</span></li>
                     <li><span>商品原价：{{ onegoods.marketprice }}</span></li>
                     <li><span>商品规格：{{ onegoods.specifics }}</span></li>
@@ -27,24 +27,28 @@
                     <li><span>销量：{{ onegoods.productnum }}</span></li>
                 </ul>
             </div>
+
             <div id="shop">
-                <button>立即购买</button>
-                <button>加入购物车</button>
-                <span>
-                    <a>扫码支付</a>
-                    <span class="dropdown">
-                        <img src="{% static 'goods/img/1.png' %}">
-                        <div class="dropdown-content">
-                            <img src="{% static 'goods/img/1.png' %}" alt="Trolltunga Norway" width="120" height="120">
-                        </div>
+                <div id="btn">
+                    <button>立即购买</button>
+                    <button ga="{{onegoods.productid}}" id="addShopping">加入购物车</button>
+                    <span >
+                        <a>扫码支付</a>
+                        <span class="dropdown">
+                            <img src="{% static 'goods/img/1.png' %}">
+                            <div class="dropdown-content">
+                                <img src="{% static 'goods/img/1.png' %}" alt="Trolltunga Norway" width="120" height="120">
+                            </div>
+                        </span>
                     </span>
-                </span>
+                </div>
             </div>
+
             <div id="feature">
                 <ul>
-                    <li>7天无理由退货</li>
-                    <li>商品保管说明</li>
-                    <li>企业采购</li>
+                    <li><a>7天无理由退货</a></li>
+                    <li><a>商品保管说明</a></li>
+                    <li><a>企业采购</a></li>
                 </ul>
             </div>
         </div>
