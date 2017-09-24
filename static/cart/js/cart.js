@@ -59,13 +59,28 @@ $(document).ready(function () {
         },false)
     }
     function priceUpdata() {
-        $.post("/allprice/",function (data) {
+        $.post("/allprice/0/",function (data) {
             if(data.status == 'success'){
                 document.getElementById('money').innerHTML = data.price
+                //全选判断
+                document.getElementById('allchose').innerHTML = data.data
             }
         })
     }
     priceUpdata()
+
+    // var allchose = document.getElementsByClassName('confirm')
+    // allchose.addEventListener('click',function () {
+    //     var str = '√'
+    //     document.getElementById('allchose').innerHTML = data.data
+    //
+    //     $.post('/allprice/1/',function (data) {
+    //         if(data.status == 'success'){
+    //             console.log('success')
+    //         }
+    //     })
+    // })
+
 
     var ok = document.getElementById('ok')
     ok.addEventListener('click',function () {

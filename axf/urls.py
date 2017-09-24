@@ -19,7 +19,7 @@ urlpatterns = [
     # 购物车商品
     url(r'^cartgoods/(\d+)/$',views.cartgoods,name='cartgoods'),
     # 总价格
-    url(r'^allprice/$',views.allprice,name='allprice'),
+    url(r'^allprice/(\d+)/$',views.allprice,name='allprice'),
 
     # 我的
     url(r'^mine/$',views.mine,name = 'mine'),

@@ -97,7 +97,6 @@ def changecart(request,flag):
     # 有token值获取用户信息
     user = User.objects.get(userToken=token)
 
-
     if flag == '0':
         # 判断库存
         if product.storenums == 0:
@@ -164,14 +163,28 @@ def changecart(request,flag):
             str = '√'
         return JsonResponse({'data':str,'status':'success'})
 
-def allprice(request):
+
+def allprice(request,flag):
     token = request.session.get('token')
     user = User.objects.get(userToken=token)
     carts = Cart.objects.filter(userAccount=user.userAccount,isChose=True)
-    allprice = 0
-    for item in carts:
-        allprice += float(item.productprice)
-    return JsonResponse({'price':allprice,'status':'success'})
+    allcarts = Cart.objects.filter(userAccount=user.userAccount)
+    if flag == '0':
+    # 全选判断
+        if(len(carts) == len(allcarts)):
+            str = '√'
+        else:
+            str = ''
+        allprice = 0
+        for item in carts:
+            allprice += float(item.productprice)
+    return JsonResponse({'price':allprice,'data':str,'status':'success'})
+    # elif flag == 1 :
+    #     for everycart in allcarts:
+    #         everycart.isChose = True
+    #     everycart.save()
+    #     str = '√'
+    #     return JsonResponse({'data': str, 'status': 'success'})
 
 
 
