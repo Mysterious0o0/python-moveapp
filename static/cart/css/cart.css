@@ -1,10 +1,10 @@
 #cart {
-  padding: 1.5rem 0;
+  padding: 1.5rem 0 0 0;
   z-index: +15;
   width: 100%;
   background: #fafafa;
   font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
-  overflow: hidden; }
+}
 
 h3 {
   text-align: center;

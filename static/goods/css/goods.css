@@ -1,10 +1,11 @@
 #goods {
-  padding: 1.5rem 0;
+  padding: 1.5rem 0 0 0;
   font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
   overflow: auto;
   height: 100%;
   width: 100%;
-  position: fixed;}
+  position: fixed;
+}
 
 #img{
     width: 100%;

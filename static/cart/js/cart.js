@@ -12,7 +12,7 @@ $(document).ready(function () {
                 if(data.status == 'success'){
                 //添加成功。把span的innerHTML编程当前数量
 
-                    document.getElementById(pid).innerHTML = data.data
+                    document.getElementById(pid+'span').innerHTML = data.data
                     document.getElementById(pid+'price').innerHTML = data.price
                     priceUpdata()
                 }
@@ -29,7 +29,7 @@ $(document).ready(function () {
             $.post('/changecart/1/',{'productid':pid},function (data) {
                 if(data.status == 'success'){
                     //删除成功。把span的innerHTML编程当前数量
-                    document.getElementById(pid).innerHTML = data.data
+                    document.getElementById(pid+'span').innerHTML = data.data
                     document.getElementById(pid+'price').innerHTML = data.price
                     if (data.data== 0){
                         // window.location.href='http:127.0.0.1:8000/cart'
@@ -72,13 +72,13 @@ $(document).ready(function () {
     // var allchose = document.getElementsByClassName('confirm')
     // allchose.addEventListener('click',function () {
     //     var str = '√'
-    //     document.getElementById('allchose').innerHTML = data.data
-    //
-    //     $.post('/allprice/1/',function (data) {
-    //         if(data.status == 'success'){
-    //             console.log('success')
-    //         }
-    //     })
+    //     document.getElementById('allchose').innerHTML = str
+
+        // $.post('/allprice/1/',function (data) {
+        //     if(data.status == 'success'){
+        //         console.log('success')
+        //     }
+        // })
     // })
 
 
